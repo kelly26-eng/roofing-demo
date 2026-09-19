@@ -198,6 +198,92 @@
       }
     }
   </style>
+  <style>
+
+.projects {
+  background: #0b0b0b;
+  padding: 90px 8%;
+}
+
+.projects h2 {
+  font-size: clamp(42px, 7vw, 76px);
+  line-height: 1;
+  margin-bottom: 24px;
+}
+
+.projects-intro {
+  max-width: 620px;
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 50px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.project-card {
+  background: #151515;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: #f5a623;
+}
+
+.project-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-info {
+  padding: 28px;
+}
+
+.project-info span {
+  color: #f5a623;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.project-info h3 {
+  font-size: 25px;
+  margin: 14px 0;
+}
+
+.project-info p {
+  color: #aaa;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+
+  .projects {
+    padding: 70px 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card img {
+    height: 260px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -286,6 +372,63 @@
         hail, wind and severe storm damage.
       </p>
     </div>
+
+  </div>
+
+</section>
+<section class="projects" id="projects">
+
+  <div class="section-label">RECENT PROJECTS</div>
+
+  <h2>WORK THAT<br>SPEAKS FOR ITSELF.</h2>
+
+  <p class="projects-intro">
+    A look at some of our recent roofing installations,
+    repairs and storm restoration projects.
+  </p>
+
+  <div class="project-grid">
+
+    <article class="project-card">
+      <img
+        src="https://images.unsplash.com/photo-1635424710928-0544e8512eae?auto=format&fit=crop&w=1200&q=80"
+        alt="Residential roofing project"
+      >
+
+      <div class="project-info">
+        <span>ROOF REPLACEMENT</span>
+        <h3>Modern Residential Roof</h3>
+        <p>Complete shingle replacement and weather protection system.</p>
+      </div>
+    </article>
+
+
+    <article class="project-card">
+      <img
+        src="https://images.unsplash.com/photo-1622993215811-7b3d9b4d2f36?auto=format&fit=crop&w=1200&q=80"
+        alt="Roof repair project"
+      >
+
+      <div class="project-info">
+        <span>ROOF REPAIR</span>
+        <h3>Emergency Leak Repair</h3>
+        <p>Rapid repair and damaged-shingle replacement after severe weather.</p>
+      </div>
+    </article>
+
+
+    <article class="project-card">
+      <img
+        src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+        alt="Storm restoration project"
+      >
+
+      <div class="project-info">
+        <span>STORM RESTORATION</span>
+        <h3>Full Storm Recovery</h3>
+        <p>Roof restoration designed to protect the property from future storms.</p>
+      </div>
+    </article>
 
   </div>
 
