@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NextGen Roofing</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 8%;
+      position: absolute;
+      width: 100%;
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #f5a623;
+    }
+
+    .nav-button {
+      background: #f5a623;
+      color: #111;
+      padding: 12px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 8% 60px;
+
+      background:
+        linear-gradient(
+          rgba(0,0,0,0.55),
+          rgba(0,0,0,0.8)
+        ),
+        url("https://images.unsplash.com/photo-1632759145351-1d592919f522?auto=format&fit=crop&w=1600&q=80");
+
+      background-size: cover;
+      background-position: center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .small-text {
+      color: #f5a623;
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      font-size: clamp(46px, 8vw, 90px);
+      line-height: 0.95;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #ddd;
+      max-width: 550px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .primary {
+      background: #f5a623;
+      color: #111;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .secondary {
+      border: 1px solid white;
+      color: white;
+      padding: 16px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        padding: 20px;
+      }
+
+      .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      h1 {
+        font-size: 52px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">
+    NEXTGEN<span>ROOF</span>
+  </div>
+
+  <a href="#contact" class="nav-button">
+    Free Estimate
+  </a>
+</nav>
+
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="small-text">
+      PREMIUM ROOFING SERVICES
+    </div>
+
+    <h1>
+      BUILT TO<br>
+      WEATHER<br>
+      ANY STORM.
+    </h1>
+
+    <p>
+      Professional roof installation, repairs and storm restoration
+      built to protect your home for years to come.
+    </p>
+
+    <div class="buttons">
+
+      <a href="#contact" class="primary">
+        Get Free Estimate →
+      </a>
+
+      <a href="#services" class="secondary">
+        Our Services
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
