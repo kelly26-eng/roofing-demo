@@ -745,6 +745,56 @@
 }
 
 </style>
+<style>
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Elements waiting to appear */
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+/* When the element enters the screen */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Slight stagger effect for cards */
+.reveal-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-delay-3 {
+  transition-delay: 0.3s;
+}
+
+/* Respect reduced-motion accessibility settings */
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+}
+
+</style>
 </head>
 
 <body id="top">
@@ -1224,5 +1274,53 @@
   </div>
 
 </footer>
+<script>
+
+const revealElements = document.querySelectorAll(
+  '.services, .why-us, .projects, .testimonials, .contact, ' +
+  '.service-card, .why-card, .project-card, .testimonial-card, .stat'
+);
+
+/* Add animation class */
+revealElements.forEach((element, index) => {
+  element.classList.add('reveal');
+
+  /* Give repeating cards a subtle stagger */
+  if (
+    element.classList.contains('service-card') ||
+    element.classList.contains('why-card') ||
+    element.classList.contains('project-card') ||
+    element.classList.contains('testimonial-card')
+  ) {
+    const delay = (index % 3) + 1;
+    element.classList.add(`reveal-delay-${delay}`);
+  }
+});
+
+
+const observer = new IntersectionObserver(
+  (entries) => {
+
+    entries.forEach(entry => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+
+    });
+
+  },
+  {
+    threshold: 0.12
+  }
+);
+
+
+revealElements.forEach(element => {
+  observer.observe(element);
+});
+
+</script>
 </body>
 </html>
