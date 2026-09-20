@@ -374,6 +374,149 @@
 }
 
 </style>
+<style>
+
+.contact {
+  background: #0b0b0b;
+  padding: 100px 8%;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-copy h2 {
+  font-size: clamp(44px, 7vw, 78px);
+  line-height: 0.95;
+  margin-bottom: 28px;
+}
+
+.contact-copy > p {
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 520px;
+  margin-bottom: 45px;
+}
+
+.contact-points {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.contact-points div {
+  padding-left: 20px;
+  border-left: 2px solid #f5a623;
+}
+
+.contact-points strong {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 7px;
+}
+
+.contact-points span {
+  color: #888;
+  line-height: 1.5;
+}
+
+
+.estimate-form {
+  background: #151515;
+  border: 1px solid #292929;
+  border-radius: 20px;
+  padding: 38px;
+}
+
+.form-group {
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ddd;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  background: #0d0d0d;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 15px 16px;
+  font-size: 16px;
+  outline: none;
+  font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #f5a623;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 130px;
+}
+
+.submit-button {
+  width: 100%;
+  background: #f5a623;
+  color: #111;
+  border: none;
+  border-radius: 10px;
+  padding: 17px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease;
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  background: #ffb535;
+}
+
+.form-note {
+  color: #777;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 16px;
+  line-height: 1.5;
+}
+
+
+@media (max-width: 800px) {
+
+  .contact {
+    padding: 75px 20px;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .estimate-form {
+    padding: 26px 20px;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -599,6 +742,120 @@
       </div>
 
     </article>
+
+  </div>
+
+</section>
+<section class="contact" id="contact">
+
+  <div class="contact-content">
+
+    <div class="contact-copy">
+
+      <div class="section-label">
+        FREE ESTIMATE
+      </div>
+
+      <h2>
+        LET'S PROTECT<br>
+        YOUR HOME.
+      </h2>
+
+      <p>
+        Tell us about your roofing project and we'll get back to you
+        with the next steps.
+      </p>
+
+      <div class="contact-points">
+
+        <div>
+          <strong>Fast Response</strong>
+          <span>We respond quickly to new estimate requests.</span>
+        </div>
+
+        <div>
+          <strong>No-Pressure Estimate</strong>
+          <span>Clear information before you make a decision.</span>
+        </div>
+
+        <div>
+          <strong>Professional Service</strong>
+          <span>From inspection through final cleanup.</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <form class="estimate-form">
+
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="John Smith"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="+1 555 123 4567"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="john@example.com"
+          required
+        >
+      </div>
+
+      <div class="form-group">
+        <label for="service">Service Needed</label>
+
+        <select id="service" name="service" required>
+          <option value="">Choose a service</option>
+          <option>Roof Replacement</option>
+          <option>Roof Repair</option>
+          <option>Storm Restoration</option>
+          <option>Roof Inspection</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Tell Us About Your Project</label>
+
+        <textarea
+          id="message"
+          name="message"
+          rows="5"
+          placeholder="Describe the roofing issue or project..."
+        ></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">
+        Request Free Estimate →
+      </button>
+
+      <p class="form-note">
+        No obligation. We'll contact you to discuss your project.
+      </p>
+
+    </form>
 
   </div>
 
