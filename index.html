@@ -517,6 +517,136 @@
 }
 
 </style>
+<style>
+
+.why-us {
+  background: #0d0d0d;
+  padding: 100px 8%;
+}
+
+.why-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.why-heading {
+  max-width: 720px;
+  margin-bottom: 55px;
+}
+
+.why-heading h2 {
+  font-size: clamp(46px, 7vw, 80px);
+  line-height: 0.95;
+  margin-bottom: 25px;
+}
+
+.why-heading p {
+  color: #aaa;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 60px;
+}
+
+.why-card {
+  background: #161616;
+  border: 1px solid #292929;
+  border-radius: 18px;
+  padding: 34px;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-7px);
+  border-color: #f5a623;
+}
+
+.why-number {
+  display: block;
+  color: #f5a623;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 35px;
+}
+
+.why-card h3 {
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.why-card p {
+  color: #999;
+  line-height: 1.7;
+}
+
+.trust-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid #292929;
+  border-bottom: 1px solid #292929;
+}
+
+.stat {
+  padding: 35px 20px;
+  text-align: center;
+  border-right: 1px solid #292929;
+}
+
+.stat:last-child {
+  border-right: none;
+}
+
+.stat strong {
+  display: block;
+  color: #f5a623;
+  font-size: clamp(32px, 5vw, 48px);
+  margin-bottom: 10px;
+}
+
+.stat span {
+  color: #888;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+@media (max-width: 700px) {
+
+  .why-us {
+    padding: 75px 20px;
+  }
+
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .trust-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat {
+    border-bottom: 1px solid #292929;
+  }
+
+  .stat:nth-child(2) {
+    border-right: none;
+  }
+
+  .stat:nth-child(3),
+  .stat:nth-child(4) {
+    border-bottom: none;
+  }
+
+}
+
+</style>
 </head>
 
 <body>
@@ -560,6 +690,98 @@
       <a href="#services" class="secondary">
         Our Services
       </a>
+
+    </div>
+
+  </div>
+
+</section>
+</section>
+
+<section class="why-us" id="why-us">
+
+  <div class="why-content">
+
+    <div class="why-heading">
+
+      <div class="section-label">
+        WHY CHOOSE US
+      </div>
+
+      <h2>
+        BUILT ON<br>
+        TRUST.
+      </h2>
+
+      <p>
+        Roofing is more than shingles and nails. It is about protecting
+        the people and property underneath them.
+      </p>
+
+    </div>
+
+
+    <div class="why-grid">
+
+      <article class="why-card">
+        <span class="why-number">01</span>
+
+        <h3>Clear Communication</h3>
+
+        <p>
+          Straightforward recommendations, transparent estimates
+          and updates throughout your project.
+        </p>
+      </article>
+
+
+      <article class="why-card">
+        <span class="why-number">02</span>
+
+        <h3>Quality Workmanship</h3>
+
+        <p>
+          Every installation and repair is approached with attention
+          to detail and long-term protection in mind.
+        </p>
+      </article>
+
+
+      <article class="why-card">
+        <span class="why-number">03</span>
+
+        <h3>Reliable Service</h3>
+
+        <p>
+          From the first inspection through cleanup, we focus on making
+          the roofing process simple and dependable.
+        </p>
+      </article>
+
+    </div>
+
+
+    <div class="trust-stats">
+
+      <div class="stat">
+        <strong>XX+</strong>
+        <span>Projects Completed</span>
+      </div>
+
+      <div class="stat">
+        <strong>XX+</strong>
+        <span>Years Experience</span>
+      </div>
+
+      <div class="stat">
+        <strong>X.X/5</strong>
+        <span>Customer Rating</span>
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Commitment to Quality</span>
+      </div>
 
     </div>
 
