@@ -647,9 +647,107 @@
 }
 
 </style>
+<style>
+
+.site-footer {
+  background: #080808;
+  border-top: 1px solid #242424;
+  padding: 70px 8% 25px;
+}
+
+.footer-top {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.4fr;
+  gap: 60px;
+  padding-bottom: 55px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 20px;
+}
+
+.footer-brand p {
+  color: #888;
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+.footer-links,
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #999;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+  color: #f5a623;
+}
+
+.footer-contact p {
+  color: #888;
+  line-height: 1.6;
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 25px;
+  border-top: 1px solid #242424;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-bottom p,
+.footer-bottom a {
+  color: #666;
+  font-size: 13px;
+}
+
+.footer-bottom a {
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  color: #f5a623;
+}
+
+@media (max-width: 700px) {
+
+  .site-footer {
+    padding: 60px 20px 25px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+  }
+
+}
+
+</style>
 </head>
 
-<body>
+<body id="top">
 
 <nav>
   <div class="logo">
@@ -1082,5 +1180,49 @@
   </div>
 
 </section>
+<footer class="site-footer">
+
+  <div class="footer-top">
+
+    <div class="footer-brand">
+      <div class="logo">
+        NEXTGEN<span>ROOF</span>
+      </div>
+
+      <p>
+        Professional roofing services built around quality,
+        communication and long-term protection.
+      </p>
+    </div>
+
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#why-us">Why Choose Us</a>
+      <a href="#contact">Free Estimate</a>
+    </div>
+
+    <div class="footer-contact">
+      <h4>Contact</h4>
+
+      <p>Phone: (555) 123-4567</p>
+      <p>Email: hello@nextgenroof.com</p>
+      <p>Serving homeowners in your local area.</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>
+      © 2026 NextGenRoof. All rights reserved.
+    </p>
+
+    <a href="#top">Back to top ↑</a>
+  </div>
+
+</footer>
 </body>
 </html>
