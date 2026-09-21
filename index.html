@@ -1164,6 +1164,30 @@ html {
 }
 
 </style>
+<style>
+
+.form-status {
+  min-height: 24px;
+  margin-top: 16px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.form-status.success {
+  color: #67e8a3;
+}
+
+.form-status.error {
+  color: #ff6b6b;
+}
+
+.submit-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+</style>
 </head>
 
 <body id="top">
@@ -1595,7 +1619,12 @@ html {
     </div>
 
 
-    <form class="estimate-form">
+    <form
+  class="estimate-form"
+  id="estimate-form"
+  action="https://formspree.io/f/xaenebzp"
+  method="POST"
+>
 
       <div class="form-group">
         <label for="name">Full Name</label>
@@ -1657,7 +1686,7 @@ html {
       <button type="submit" class="submit-button">
         Request Free Estimate →
       </button>
-
+<p id="form-status" class="form-status" aria-live="polite"></p>
       <p class="form-note">
         No obligation. We'll contact you to discuss your project.
       </p>
@@ -1840,6 +1869,65 @@ window.addEventListener('scroll', () => {
   }
 
 });
+
+</scriptconst estimateForm = document.getElementById('estimate-form');
+const formStatus = document.getElementById('form-status');
+
+if (estimateForm) {
+
+  estimateForm.addEventListener('submit', async (event) => {
+
+    event.preventDefault();
+
+    const submitButton =
+      estimateForm.querySelector('.submit-button');
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    formStatus.textContent = '';
+    formStatus.className = 'form-status';
+
+    try {
+
+      const response = await fetch(estimateForm.action, {
+        method: 'POST',
+        body: new FormData(estimateForm),
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        formStatus.className = 'form-status success';
+        formStatus.className = 'form-status success';
+        formStatus.textContent =
+          '✓ Request received. We’ll contact you shortly.';
+
+        estimateForm.reset();
+
+      } else {
+        formStatus.className = 'form-status error';
+        formStatus.className = 'form-status error';
+        formStatus.textContent =
+          'Something went wrong. Please try again.';
+
+      }
+
+    } catch (error) {
+      formStatus.className = 'form-status error';
+      formStatus.textContent =
+        'Unable to send your request. Please try again.';
+
+    }
+
+    submitButton.disabled = false;
+    submitButton.textContent =
+      'Request Free Estimate →';
+
+  });
+
+}
 </script>
 </body>
 </html>
