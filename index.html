@@ -90,15 +90,34 @@
       color: white;
     }
 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 8%;
-      position: absolute;
-      width: 100%;
-      z-index: 10;
-    }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  background: rgba(8, 8, 8, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition:
+    background 0.3s ease,
+    padding 0.3s ease;
+}
+
+nav.scrolled {
+  background: rgba(8, 8, 8, 0.92);
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+    
 
     .logo {
       font-size: 24px;
@@ -1320,7 +1339,15 @@ const observer = new IntersectionObserver(
 revealElements.forEach(element => {
   observer.observe(element);
 });
+const navbar = document.querySelector('nav');
 
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
 </script>
 </body>
 </html>
