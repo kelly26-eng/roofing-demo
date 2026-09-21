@@ -892,6 +892,278 @@ html {
 }
 
 </style>
+<style>
+
+.roof-tech {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 70% 45%, rgba(245,166,35,0.09), transparent 35%),
+    #090909;
+
+  padding: 120px 8%;
+}
+
+.roof-tech-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+
+  align-items: center;
+}
+
+.roof-tech-copy h2 {
+  font-size: clamp(48px, 7vw, 82px);
+  line-height: 0.92;
+  margin-bottom: 28px;
+}
+
+.roof-tech-copy p {
+  color: #999;
+  max-width: 540px;
+  font-size: 18px;
+  line-height: 1.75;
+  margin-bottom: 35px;
+}
+
+
+/* 3D AREA */
+
+.roof-stage {
+  position: relative;
+  min-height: 600px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  perspective: 1200px;
+}
+
+.roof-scene {
+  position: relative;
+
+  width: 420px;
+  height: 420px;
+
+  transform-style: preserve-3d;
+
+  transform:
+    rotateX(58deg)
+    rotateZ(-32deg);
+
+  transition: transform 0.15s linear;
+}
+
+
+/* Floating layers */
+
+.roof-plane {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 330px;
+  height: 210px;
+
+  margin-left: -165px;
+  margin-top: -105px;
+
+  border-radius: 18px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+
+  padding: 28px;
+
+  border: 1px solid rgba(255,255,255,0.12);
+
+  box-shadow:
+    0 30px 60px rgba(0,0,0,0.45);
+
+  transform-style: preserve-3d;
+
+  transition:
+    transform 0.8s cubic-bezier(.2,.7,.2,1),
+    box-shadow 0.8s ease;
+}
+
+.roof-plane span {
+  color: #f5a623;
+  font-size: 13px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.roof-plane strong {
+  font-size: 21px;
+}
+
+
+/* TOP LAYER */
+
+.roof-plane-top {
+  background:
+    linear-gradient(
+      135deg,
+      #333,
+      #151515
+    );
+
+  transform: translateZ(115px);
+}
+
+
+/* MIDDLE LAYER */
+
+.roof-plane-middle {
+  background:
+    linear-gradient(
+      135deg,
+      #252525,
+      #111
+    );
+
+  transform: translateZ(45px);
+}
+
+
+/* BOTTOM LAYER */
+
+.roof-plane-bottom {
+  background:
+    linear-gradient(
+      135deg,
+      #171717,
+      #080808
+    );
+
+  transform: translateZ(-25px);
+}
+
+
+/* CENTER CORE */
+
+.roof-core {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 160px;
+  height: 70px;
+
+  margin-left: -80px;
+  margin-top: -35px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #f5a623;
+  color: #111;
+
+  border-radius: 14px;
+
+  font-weight: 900;
+  letter-spacing: 3px;
+
+  transform:
+    translateZ(170px)
+    rotateZ(0deg);
+
+  box-shadow:
+    0 20px 50px rgba(245,166,35,0.28);
+}
+
+
+/* FLOATING BADGES */
+
+.roof-badge {
+  position: absolute;
+
+  background: rgba(20,20,20,0.78);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+
+  padding: 15px 18px;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,0.3);
+}
+
+.roof-badge strong {
+  display: block;
+  color: #f5a623;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.roof-badge span {
+  color: #999;
+  font-size: 12px;
+}
+
+.roof-badge-one {
+  top: 70px;
+  right: 10px;
+}
+
+.roof-badge-two {
+  bottom: 70px;
+  left: 10px;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+  .roof-tech {
+    padding: 90px 20px;
+  }
+
+  .roof-tech-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .roof-stage {
+    min-height: 480px;
+  }
+
+  .roof-scene {
+    width: 320px;
+    height: 320px;
+
+    transform:
+      rotateX(58deg)
+      rotateZ(-32deg)
+      scale(0.82);
+  }
+
+  .roof-plane {
+    width: 300px;
+    height: 190px;
+
+    margin-left: -150px;
+    margin-top: -95px;
+  }
+
+}
+
+</style>
 </head>
 
 <body id="top">
@@ -941,7 +1213,75 @@ html {
   </div>
 
 </section>
+<section class="roof-tech" id="roof-system">
 
+  <div class="roof-tech-inner">
+
+    <div class="roof-tech-copy">
+
+      <div class="section-label">
+        BUILT LAYER BY LAYER
+      </div>
+
+      <h2>
+        ENGINEERED<br>
+        TO PROTECT.
+      </h2>
+
+      <p>
+        A high-performance roof is more than what you see from the
+        street. Every layer works together to protect your home
+        against heat, wind, rain and severe weather.
+      </p>
+
+      <a href="#contact" class="primary">
+        Get Your Roof Checked →
+      </a>
+
+    </div>
+
+
+    <div class="roof-stage">
+
+      <div class="roof-scene">
+
+        <div class="roof-plane roof-plane-top">
+          <span>01</span>
+          <strong>Weather Shield</strong>
+        </div>
+
+        <div class="roof-plane roof-plane-middle">
+          <span>02</span>
+          <strong>Underlayment</strong>
+        </div>
+
+        <div class="roof-plane roof-plane-bottom">
+          <span>03</span>
+          <strong>Roof Deck</strong>
+        </div>
+
+        <div class="roof-core">
+          NEXTGEN
+        </div>
+
+      </div>
+
+
+      <div class="roof-badge roof-badge-one">
+        <strong>3-Layer</strong>
+        <span>Protection System</span>
+      </div>
+
+      <div class="roof-badge roof-badge-two">
+        <strong>360°</strong>
+        <span>Weather Defense</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
 <section class="why-us" id="why-us">
 
@@ -1448,6 +1788,55 @@ window.addEventListener('scroll', () => {
     });
 
     ticking = true;
+  }
+
+});
+const roofSection = document.querySelector('.roof-tech');
+const roofScene = document.querySelector('.roof-scene');
+const roofTop = document.querySelector('.roof-plane-top');
+const roofMiddle = document.querySelector('.roof-plane-middle');
+const roofBottom = document.querySelector('.roof-plane-bottom');
+const roofCore = document.querySelector('.roof-core');
+
+window.addEventListener('scroll', () => {
+
+  if (!roofSection || !roofScene) return;
+
+  const rect = roofSection.getBoundingClientRect();
+  const windowHeight = window.innerHeight;
+
+  const progress = Math.min(
+    Math.max(
+      (windowHeight - rect.top) /
+      (windowHeight + rect.height),
+      0
+    ),
+    1
+  );
+
+  const rotation = -32 + progress * 18;
+
+  roofScene.style.transform =
+    `rotateX(58deg) rotateZ(${rotation}deg)`;
+
+  if (roofTop) {
+    roofTop.style.transform =
+      `translateZ(${115 + progress * 80}px)`;
+  }
+
+  if (roofMiddle) {
+    roofMiddle.style.transform =
+      `translateZ(${45 + progress * 30}px)`;
+  }
+
+  if (roofBottom) {
+    roofBottom.style.transform =
+      `translateZ(${-25 - progress * 35}px)`;
+  }
+
+  if (roofCore) {
+    roofCore.style.transform =
+      `translateZ(${170 + progress * 50}px)`;
   }
 
 });
