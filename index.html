@@ -1188,6 +1188,74 @@ html {
 }
 
 </style>
+<style>
+
+/* PREMIUM PROJECT CARD DEPTH */
+
+.project-grid {
+  perspective: 1400px;
+}
+
+.project-card {
+  position: relative;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.project-card.reveal.visible {
+  transform:
+    perspective(1100px)
+    rotateX(var(--tilt-x, 0deg))
+    rotateY(var(--tilt-y, 0deg));
+
+  transition:
+    transform 0.18s linear,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.project-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,0.08),
+      transparent 35%,
+      rgba(245,166,35,0.08)
+    );
+
+  opacity: var(--glow, 0);
+
+  transition: opacity 0.2s ease;
+}
+
+.project-info {
+  position: relative;
+  z-index: 2;
+  transform: translateZ(22px);
+}
+
+.project-card.reveal.visible:hover {
+  border-color: #f5a623;
+
+  box-shadow:
+    0 28px 70px rgba(0,0,0,0.45),
+    0 0 30px rgba(245,166,35,0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .project-card.reveal.visible {
+    transform: none;
+  }
+
+}
+
+</style>
 </head>
 
 <body id="top">
@@ -1988,6 +2056,92 @@ const counterObserver = new IntersectionObserver(
 counters.forEach(counter => {
   counterObserver.observe(counter);
 });
+const projectCards3D =
+  document.querySelectorAll('.project-card');
+
+let projectTiltTicking = false;
+
+function updateProjectCardTilt() {
+
+  const viewportCenter =
+    window.innerHeight / 2;
+
+  projectCards3D.forEach((card, index) => {
+
+    const rect =
+      card.getBoundingClientRect();
+
+    if (
+      rect.bottom < 0 ||
+      rect.top > window.innerHeight
+    ) {
+      return;
+    }
+
+    const cardCenter =
+      rect.top + rect.height / 2;
+
+    const distance =
+      (cardCenter - viewportCenter) /
+      viewportCenter;
+
+    const position =
+      Math.max(-1, Math.min(1, distance));
+
+    const tiltX =
+      position * -5;
+
+    const tiltY =
+      position *
+      (index % 2 === 0 ? 2.5 : -2.5);
+
+    const glow =
+      0.15 +
+      (1 - Math.abs(position)) * 0.55;
+
+    card.style.setProperty(
+      '--tilt-x',
+      `${tiltX}deg`
+    );
+
+    card.style.setProperty(
+      '--tilt-y',
+      `${tiltY}deg`
+    );
+
+    card.style.setProperty(
+      '--glow',
+      glow
+    );
+
+  });
+
+  projectTiltTicking = false;
+}
+
+function requestProjectTiltUpdate() {
+
+  if (projectTiltTicking) return;
+
+  projectTiltTicking = true;
+
+  requestAnimationFrame(
+    updateProjectCardTilt
+  );
+}
+
+window.addEventListener(
+  'scroll',
+  requestProjectTiltUpdate,
+  { passive: true }
+);
+
+window.addEventListener(
+  'resize',
+  requestProjectTiltUpdate
+);
+
+updateProjectCardTilt();
 </script>
 </body>
 </html>
