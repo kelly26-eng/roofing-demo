@@ -1387,8 +1387,21 @@ html {
         <span>Customer Rating</span>
       </div>
 
-      <div class="stat">
-        <strong>100%</strong>
+        <div class="stat">
+
+    <strong
+
+      class="counter"
+
+      data-target="100"
+
+      data-suffix="%"
+
+    >
+
+      0%
+
+    </strong>
         <span>Commitment to Quality</span>
       </div>
 
@@ -1928,6 +1941,53 @@ if (estimateForm) {
   });
 
 }
+const counters = document.querySelectorAll('.counter');
+
+const counterObserver = new IntersectionObserver(
+  (entries, observer) => {
+
+    entries.forEach(entry => {
+
+      if (!entry.isIntersecting) return;
+
+      const counter = entry.target;
+
+      const target = Number(counter.dataset.target);
+      const suffix = counter.dataset.suffix || '';
+
+      let current = 0;
+      const duration = 1400;
+      const stepTime = 20;
+      const steps = duration / stepTime;
+      const increment = target / steps;
+
+      const timer = setInterval(() => {
+
+        current += increment;
+
+        if (current >= target) {
+          counter.textContent = target + suffix;
+          clearInterval(timer);
+        } else {
+          counter.textContent =
+            Math.floor(current) + suffix;
+        }
+
+      }, stepTime);
+
+      observer.unobserve(counter);
+
+    });
+
+  },
+  {
+    threshold: 0.6
+  }
+);
+
+counters.forEach(counter => {
+  counterObserver.observe(counter);
+});
 </script>
 </body>
 </html>
