@@ -1468,6 +1468,17 @@ html {
 }
 
 </style>
+<style>
+
+.demo-note {
+  margin-top: 10px;
+  color: #666;
+  font-size: 11px;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+</style>
 </head>
 
 <body id="top">
@@ -1653,36 +1664,24 @@ html {
     <div class="trust-stats">
 
       <div class="stat">
-        <strong>XX+</strong>
-        <span>Projects Completed</span>
+        <strong>DEMO</strong>
+        <span>Project showcase</span>
       </div>
 
       <div class="stat">
-        <strong>XX+</strong>
-        <span>Years Experience</span>
+        <strong>CUSTOM</strong>
+        <span>BRAND & content</span>
       </div>
 
       <div class="stat">
-        <strong>X.X/5</strong>
-        <span>Customer Rating</span>
+        <strong>REAL</strong>
+        <span>verified Reviews</span>
       </div>
 
         <div class="stat">
 
-    <strong
-
-      class="counter"
-
-      data-target="100"
-
-      data-suffix="%"
-
-    >
-
-      0%
-
-    </strong>
-        <span>Commitment to Quality</span>
+        <strong>LIVE</strong>
+        <span>Estimate Form</span>
       </div>
 
     </div>
@@ -1793,17 +1792,17 @@ html {
 <section class="testimonials" id="reviews">
 
   <div class="section-label">
-    CUSTOMER REVIEWS
+    SAMPLE REVIEWS
   </div>
 
   <h2>
-    TRUSTED BY<br>
-    HOMEOWNERS.
+    CLIENT FEEDBACK<br>
+    PREVIEW.
   </h2>
 
   <p class="testimonials-intro">
-    Quality workmanship, honest communication and dependable
-    roofing service from start to finish.
+    Example testimonial content showing how verified customer
+    feedback can be presented on a finished client website.
   </p>
 
   <div class="testimonial-grid">
@@ -1821,7 +1820,7 @@ html {
       </p>
 
       <div class="customer">
-        <strong>Michael R.</strong>
+        <strong>sample homeowner</strong>
         <span>Roof Replacement</span>
       </div>
 
@@ -1841,7 +1840,7 @@ html {
       </p>
 
       <div class="customer">
-        <strong>Sarah T.</strong>
+        <strong>Sample homeowner</strong>
         <span>Storm Restoration</span>
       </div>
 
@@ -1861,7 +1860,7 @@ html {
       </p>
 
       <div class="customer">
-        <strong>David K.</strong>
+        <strong>sample homeowner</strong>
         <span>Residential Roofing</span>
       </div>
 
@@ -2017,9 +2016,13 @@ html {
     <div class="footer-contact">
       <h4>Contact</h4>
 
-      <p>Phone: (555) 123-4567</p>
-      <p>Email: hello@nextgenroof.com</p>
-      <p>Serving homeowners in your local area.</p>
+      <p>Phone: Client phone number</p>
+      <p>Email: Client email address</p>
+      <p>Service area customized for each roofing company.</p>
+
+      <p class="demo-note">
+       Concept website — sample content and business details for demonstration only.
+      </p>
     </div>
 
   </div>
@@ -2221,53 +2224,6 @@ if (estimateForm) {
   });
 
 }
-const counters = document.querySelectorAll('.counter');
-
-const counterObserver = new IntersectionObserver(
-  (entries, observer) => {
-
-    entries.forEach(entry => {
-
-      if (!entry.isIntersecting) return;
-
-      const counter = entry.target;
-
-      const target = Number(counter.dataset.target);
-      const suffix = counter.dataset.suffix || '';
-
-      let current = 0;
-      const duration = 1400;
-      const stepTime = 20;
-      const steps = duration / stepTime;
-      const increment = target / steps;
-
-      const timer = setInterval(() => {
-
-        current += increment;
-
-        if (current >= target) {
-          counter.textContent = target + suffix;
-          clearInterval(timer);
-        } else {
-          counter.textContent =
-            Math.floor(current) + suffix;
-        }
-
-      }, stepTime);
-
-      observer.unobserve(counter);
-
-    });
-
-  },
-  {
-    threshold: 0.6
-  }
-);
-
-counters.forEach(counter => {
-  counterObserver.observe(counter);
-});
 const projectCards3D =
   document.querySelectorAll('.project-card');
 
